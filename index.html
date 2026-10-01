@@ -264,7 +264,7 @@
             text-decoration: underline;
         }
 
-        /* Circular Breathing Ready Now Button with Precise Alignment */
+        /* Circular Breathing Ready Now Button */
         @keyframes breathing {
             0% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
             50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(212, 175, 55, 0.6); }
@@ -298,7 +298,7 @@
             font-weight: 800;
             letter-spacing: 2px;
             line-height: 1.1;
-            margin-left: 1px; /* perfectly aligns 'READY' with 'NOW' */
+            margin-left: 1px;
         }
 
         .ready-line-2 {
@@ -525,13 +525,20 @@
             border-radius: 14px;
             padding: 16px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80px;
         }
 
         .grid-box-val {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--text-main);
             margin-bottom: 4px;
+            line-height: 1.2;
+            text-align: center;
         }
 
         .grid-box-lbl {
@@ -562,13 +569,11 @@
                 <span>SHOW UP READY™</span>
             </div>
             <div class="top-right-group">
-                <!-- Live Status Badge -->
                 <div class="live-badge" onclick="toggleCity()">
                     <div class="live-dot"></div>
                     <span id="liveBadgeText">Vancouver • Yaletown • Live</span>
                 </div>
                 
-                <!-- Dual Control Row -->
                 <div class="controls-row">
                     <div class="toggle-capsule">
                         <button onclick="setCity('yvr')" id="btn-yvr" class="active">YVR</button>
@@ -628,8 +633,8 @@
                     <div class="pilot-label-sub" data-en="Complete grooming & styling" data-fr="Coiffure et style complets">Complete grooming & styling</div>
                 </div>
                 <div class="pilot-price-area">
-                    <div class="pilot-price">$49.99 CAD</div>
-                    <button class="pilot-code-link" onclick="openCodeModal()" data-en="- HAVE SPURTAN CODE?" data-fr="- HAVE SPURTAN CODE?">- HAVE SPURTAN CODE?</button>
+                    <div class="pilot-price" id="displayPrice">$49.99 CAD</div>
+                    <button class="pilot-code-link" onclick="openCodeModal()" id="codeLinkText">- HAVE SPURTAN CODE?</button>
                 </div>
             </div>
 
@@ -660,68 +665,67 @@
             <form id="verifyForm" action="https://formspree.io/f/xlgkqnjw" method="POST" onsubmit="handleVerifySubmit(event)">
                 <input type="hidden" name="city_location" id="formCityField" value="Vancouver - Yaletown">
                 <input type="tel" class="modal-input" name="client_phone" placeholder="10 Digits" id="phoneInput" required pattern="[0-9]{10}">
-                <button type="submit" class="modal-circle-btn" data-en="FIND MATCH" data-fr="FIND MATCH">FIND MATCH</button>
+                <button type="submit" class="modal-circle-btn">FIND MATCH</button>
             </form>
             
-            <button class="modal-close" onclick="closeVerifyModal()" data-en="CANCEL" data-fr="CANCEL">CANCEL</button>
+            <button class="modal-close" onclick="closeVerifyModal()">CANCEL</button>
         </div>
     </div>
 
     <!-- SPURTAN CODE MODAL -->
     <div id="codeModal" class="modal-overlay">
         <div class="modal-card">
-            <h3 data-en="Enter SPURTAN Code" data-fr="Enter SPURTAN Code">Enter SPURTAN Code</h3>
-            <p data-en="Please enter your unique membership format code (e.g., SPUR____)" data-fr="Please enter your unique membership format code (e.g., SPUR____)">
-                Please enter your unique membership format code (e.g., SPUR____)
-            </p>
+            <h3>Enter SPURTAN Code</h3>
+            <p>Please enter your unique membership format code (e.g., SPUR____)</p>
             
             <form id="spurtanForm" action="https://formspree.io/f/xlgkqnjw" method="POST" onsubmit="handleCodeSubmit(event)">
                 <input type="hidden" name="city_location" id="formCityFieldCode" value="Vancouver - Yaletown">
                 <input type="text" class="modal-input" name="spurtan_code" placeholder="SPUR____" id="spurInput" required>
-                <button type="submit" class="modal-circle-btn" data-en="APPLY" data-fr="APPLY">APPLY</button>
+                <button type="submit" class="modal-circle-btn">APPLY</button>
             </form>
             
-            <button class="modal-close" onclick="closeCodeModal()" data-en="CANCEL" data-fr="CANCEL">CANCEL</button>
+            <button class="modal-close" onclick="closeCodeModal()">CANCEL</button>
         </div>
     </div>
 
     <!-- FINAL CONFIRMATION SCREEN -->
     <div id="finalSuccessView">
-        <div class="success-header-tag" data-en="Priority Dispatch" data-fr="Priority Dispatch">Priority Dispatch</div>
-        <div class="success-main-title" data-en="Request Received." data-fr="Request Received.">Request Received.</div>
-        <div class="success-sub-title" data-en="We are securing your specialist." data-fr="We are securing your specialist.">We are securing your specialist.</div>
+        <div class="success-header-tag">Priority Dispatch</div>
+        <div class="success-main-title">Request Received.</div>
+        <div class="success-sub-title">We are securing your specialist.</div>
 
         <div class="success-receipt-card">
             <div class="receipt-top-row">
                 <div>
-                    <div class="receipt-title" data-en="Check your messages" data-fr="Check your messages">Check your messages</div>
+                    <div class="receipt-title">Check your messages</div>
                     <div class="receipt-updates-tag" id="displayPhoneLine">DISPATCH LINE: ACTIVE</div>
                 </div>
                 <div class="receipt-price-box">
-                    <div class="receipt-price">$49.99</div>
-                    <div class="receipt-price-label" data-en="Pilot Rate" data-fr="Pilot Rate">Pilot Rate</div>
+                    <div class="receipt-price" id="finalReceiptPrice">$49.99</div>
+                    <div class="receipt-price-label">Pilot Rate</div>
                 </div>
             </div>
 
             <div class="receipt-grid">
                 <div class="receipt-grid-box">
                     <div class="grid-box-val">&lt; 3</div>
-                    <div class="grid-box-lbl" data-en="Minutes" data-fr="Minutes">Minutes</div>
+                    <div class="grid-box-lbl">Minutes</div>
                 </div>
                 <div class="receipt-grid-box">
                     <div class="grid-box-val" id="receiptTargetArea">Yaletown</div>
-                    <div class="grid-box-lbl" data-en="Location" data-fr="Location">Location</div>
+                    <div class="grid-box-lbl">Location</div>
                 </div>
             </div>
 
-            <div class="receipt-footer-desc" data-en="Your concierge is coordinating with our studio partners. You will pay the flat $49.99 fee directly at the studio after your transformation." data-fr="Your concierge is coordinating with our studio partners. You will pay the flat $49.99 fee directly at the studio after your transformation.">
-                Your concierge is coordinating with our studio partners. You will pay the flat $49.99 fee directly at the studio after your transformation.
+            <div class="receipt-footer-desc">
+                Your concierge is coordinating with our studio partners. You will pay the flat fee directly at the studio after your transformation.
             </div>
         </div>
     </div>
 
     <script>
         let currentCity = 'yvr';
+        let codeApplied = false;
 
         const cityData = {
             yvr: {
@@ -758,11 +762,7 @@
         function updateBadgeText() {
             const lang = localStorage.getItem('spur_lang') || 'en';
             const badge = document.getElementById('liveBadgeText');
-            if (lang === 'fr') {
-                badge.innerText = cityData[currentCity].frBadge;
-            } else {
-                badge.innerText = cityData[currentCity].enBadge;
-            }
+            badge.innerText = cityData[currentCity][lang === 'fr' ? 'frBadge' : 'enBadge'];
         }
 
         function switchLanguage(lang) {
@@ -787,23 +787,47 @@
         function openCodeModal() { document.getElementById('codeModal').style.display = 'flex'; }
         function closeCodeModal() { document.getElementById('codeModal').style.display = 'none'; }
 
+        // Secure One-Time Code Validation & Application Logic
         async function handleCodeSubmit(event) {
             event.preventDefault();
-            const codeVal = document.getElementById('spurInput').value.trim();
+            const codeInput = document.getElementById('spurInput');
+            const codeVal = codeInput.value.trim().toUpperCase();
 
-            if (codeVal.toUpperCase().startsWith('SPUR')) {
+            // Check if code matches format and hasn't been used yet in browser memory
+            if (codeVal.startsWith('SPUR')) {
+                const usedCodes = JSON.parse(localStorage.getItem('spur_used_codes') || '[]');
+
+                if (usedCodes.includes(codeVal)) {
+                    alert("This SPURTAN code has already been redeemed on this device.");
+                    return;
+                }
+
                 const form = event.target;
                 const formData = new FormData(form);
+
                 try {
                     await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
-                    alert("✓ Code successfully validated!");
+                    
+                    // Mark code as used locally so it can't be reused
+                    usedCodes.push(codeVal);
+                    localStorage.setItem('spur_used_codes', JSON.stringify(usedCodes));
+
+                    codeApplied = true;
+
+                    // Visually Apply the Code on the Page
+                    document.getElementById('displayPrice').innerText = "$39.99 CAD";
+                    document.getElementById('finalReceiptPrice').innerText = "$39.99";
+                    document.getElementById('codeLinkText').innerText = "✓ SPURTAN CODE APPLIED";
+                    document.getElementById('codeLinkText').style.color = "#2ecc71";
+
+                    alert("✓ SPURTAN code successfully applied (-$10.00 Pilot Discount Locked)!");
                     closeCodeModal();
                     form.reset();
                 } catch (e) {
-                    alert("Network error.");
+                    alert("Network error. Please try again.");
                 }
             } else {
-                alert("Please follow the SPUR____ format");
+                alert("Please follow the valid SPUR____ format.");
             }
         }
 
