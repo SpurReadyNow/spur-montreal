@@ -37,14 +37,14 @@
             position: relative;
         }
 
-        /* Top Header Area (Logo & Top-Right Controls) */
+        /* Top Header Area */
         .header-container {
             width: 100%;
             max-width: 440px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
         }
 
         .logo-area h1 {
@@ -126,6 +126,26 @@
             font-size: 11px;
         }
 
+        /* Location Badge Bar */
+        .location-banner {
+            width: 100%;
+            max-width: 440px;
+            margin-bottom: 35px;
+        }
+
+        .location-pill {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            background-color: rgba(212, 175, 55, 0.08);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
         /* Main Content Block */
         .main-content {
             width: 100%;
@@ -175,11 +195,21 @@
             align-items: center;
             color: var(--gold);
             flex-shrink: 0;
-            font-size: 16px;
+        }
+
+        /* Golden Minimalist SVG Icons */
+        .step-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.75;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .step-text {
-            font-size: 18px;
+            font-size: 17px;
             color: var(--text-main);
             font-weight: 400;
         }
@@ -239,7 +269,7 @@
     <div class="header-container">
         <div class="logo-area">
             <h1>SPUR</h1>
-            <span data-en="SHOW UP READY™" data-fr="PRÊT À L'EMPLOI™">SHOW UP READY™</span>
+            <span>SHOW UP READY™</span>
         </div>
         <div class="top-right-controls">
             <!-- Live Status Badge -->
@@ -256,6 +286,11 @@
         </div>
     </div>
 
+    <!-- Location Banner -->
+    <div class="location-banner">
+        <div class="location-pill">Montreal • Plateau-Mont-Royal</div>
+    </div>
+
     <!-- Main Content Section -->
     <div class="main-content">
         <div class="hero-title" data-en="You don't need to know what will make you look better." data-fr="Vous n'avez pas besoin de savoir ce qui vous mettra en valeur.">
@@ -266,22 +301,30 @@
             That's what we're here for.
         </div>
 
-        <!-- 4 Steps -->
+        <!-- 4 Steps with Clean Golden Line Icons -->
         <div class="steps-list">
             <div class="step-item">
-                <div class="step-icon">👤</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
                 <div class="step-text" data-en="We find your specialist." data-fr="Nous trouvons votre spécialiste.">We find your specialist.</div>
             </div>
             <div class="step-item">
-                <div class="step-icon">🔍</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
                 <div class="step-text" data-en="They know exactly what you need." data-fr="Ils savent exactement ce dont vous avez besoin.">They know exactly what you need.</div>
             </div>
             <div class="step-item">
-                <div class="step-icon">✓</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
                 <div class="step-text" data-en="You approve." data-fr="Vous approuvez.">You approve.</div>
             </div>
             <div class="step-item">
-                <div class="step-icon">✨</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
                 <div class="step-text" data-en="You get ready." data-fr="Vous vous préparez.">You get ready.</div>
             </div>
         </div>
