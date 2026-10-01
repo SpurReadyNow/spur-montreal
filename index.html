@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPUR Montreal | Show Up Ready</title>
+    <title>SPUR | Show Up Ready</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#0d0d0d">
@@ -84,6 +84,7 @@
             letter-spacing: 1px;
             color: var(--text-muted);
             text-transform: uppercase;
+            cursor: pointer;
         }
 
         .live-dot {
@@ -94,17 +95,22 @@
             box-shadow: 0 0 6px #2ecc71;
         }
 
-        /* Language Toggle */
-        .lang-toggle {
+        /* Dual Toggles Group (City Selector & Language Toggle) */
+        .controls-row {
+            display: flex;
+            gap: 6px;
+        }
+
+        .toggle-capsule {
             display: flex;
             align-items: center;
             background: rgba(255, 255, 255, 0.04);
-            padding: 4px 10px;
+            padding: 4px 8px;
             border-radius: 14px;
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .lang-toggle button {
+        .toggle-capsule button {
             background: none;
             border: none;
             color: var(--text-muted);
@@ -115,13 +121,13 @@
             transition: color 0.2s ease;
         }
 
-        .lang-toggle button.active {
+        .toggle-capsule button.active {
             color: var(--gold);
         }
 
-        .lang-toggle span {
+        .toggle-capsule span {
             color: #444;
-            margin: 0 3px;
+            margin: 0 2px;
             font-size: 11px;
         }
 
@@ -187,7 +193,16 @@
             align-items: center;
             color: var(--gold);
             flex-shrink: 0;
-            font-size: 14px;
+        }
+
+        .step-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.75;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .step-text {
@@ -284,12 +299,6 @@
             font-weight: 800;
             letter-spacing: 1.5px;
             line-height: 1.1;
-        }
-
-        .ready-circle-sub {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
         }
 
         .cta-footer-note {
@@ -534,16 +543,26 @@
                 <span>SHOW UP READY™</span>
             </div>
             <div class="top-right-group">
-                <!-- Live Status Badge -->
-                <div class="live-badge">
+                <!-- Live Status Badge (Shows active city dynamically) -->
+                <div class="live-badge" onclick="toggleCity()">
                     <div class="live-dot"></div>
-                    <span data-en="Montreal • Plateau • Live" data-fr="Montréal • Plateau • Actif">Montreal • Plateau • Live</span>
+                    <span id="liveBadgeText">Vancouver • Yaletown • Live</span>
                 </div>
-                <!-- Language Toggle -->
-                <div class="lang-toggle">
-                    <button onclick="switchLanguage('en')" id="btn-en" class="active">EN</button>
-                    <span>|</span>
-                    <button onclick="switchLanguage('fr')" id="btn-fr">FR</button>
+                
+                <!-- Dual Control Row: City Toggle & Language Toggle -->
+                <div class="controls-row">
+                    <!-- City Toggle -->
+                    <div class="toggle-capsule">
+                        <button onclick="setCity('yvr')" id="btn-yvr" class="active">YVR</button>
+                        <span>|</span>
+                        <button onclick="setCity('yul')" id="btn-yul">YUL</button>
+                    </div>
+                    <!-- Language Toggle -->
+                    <div class="toggle-capsule">
+                        <button onclick="switchLanguage('en')" id="btn-en" class="active">EN</button>
+                        <span>|</span>
+                        <button onclick="switchLanguage('fr')" id="btn-fr">FR</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -560,19 +579,27 @@
             <!-- 4 Steps List -->
             <div class="steps-list">
                 <div class="step-item">
-                    <div class="step-icon">👤</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
                     <div class="step-text" data-en="We find your specialist." data-fr="Nous trouvons votre spécialiste.">We find your specialist.</div>
                 </div>
                 <div class="step-item">
-                    <div class="step-icon">🔍</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
                     <div class="step-text" data-en="They know exactly what you need." data-fr="Ils savent exactement ce dont vous avez besoin.">They know exactly what you need.</div>
                 </div>
                 <div class="step-item">
-                    <div class="step-icon">✓</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
                     <div class="step-text" data-en="You approve." data-fr="Vous approuvez.">You approve.</div>
                 </div>
                 <div class="step-item">
-                    <div class="step-icon">✨</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
                     <div class="step-text" data-en="You get ready." data-fr="Vous vous préparez.">You get ready.</div>
                 </div>
             </div>
@@ -585,7 +612,7 @@
                 </div>
                 <div class="pilot-price-area">
                     <div class="pilot-price">$49.99 CAD</div>
-                    <button class="pilot-code-link" onclick="openCodeModal()" data-en="+ HAVE SPurtan CODE?" data-fr="+ AVEZ-VOUS UN CODE SPURTAN?">+ HAVE SPurtan CODE?</button>
+                    <button class="pilot-code-link" onclick="openCodeModal()" data-en="- HAVE SPURTAN CODE?" data-fr="- AVEZ-VOUS UN CODE SPURTAN?">- HAVE SPURTAN CODE?</button>
                 </div>
             </div>
 
@@ -605,7 +632,7 @@
         </div>
     </div>
 
-    <!-- VERIFICATION MODAL (Step 2: Enter Phone Number) -->
+    <!-- VERIFICATION MODAL -->
     <div id="verifyModal" class="modal-overlay">
         <div class="modal-card">
             <h3 data-en="Verify Identity" data-fr="Vérifier l'identité">Verify Identity</h3>
@@ -614,7 +641,9 @@
             </p>
             
             <form id="verifyForm" action="https://formspree.io/f/xlgkqnjw" method="POST" onsubmit="handleVerifySubmit(event)">
-                <input type="tel" class="modal-input" name="client_phone" placeholder="10 Digits (e.g. 5141234567)" id="phoneInput" required pattern="[0-9]{10}">
+                <!-- Hidden input ensuring Formspree notifies you whether it's Vancouver or Montreal -->
+                <input type="hidden" name="city_location" id="formCityField" value="Vancouver - Yaletown">
+                <input type="tel" class="modal-input" name="client_phone" placeholder="10 Digits" id="phoneInput" required pattern="[0-9]{10}">
                 <button type="submit" class="modal-btn" data-en="Confirm & Find Match" data-fr="Confirmer & Trouver un Match">CONFIRM & FIND MATCH</button>
             </form>
             
@@ -625,13 +654,14 @@
     <!-- SPURTAN CODE MODAL -->
     <div id="codeModal" class="modal-overlay">
         <div class="modal-card">
-            <h3 data-en="Enter SPurtan Code" data-fr="Entrez votre code SPurtan">Enter SPurtan Code</h3>
-            <p data-en="Please enter your unique membership format code (e.g., Spur____)" data-fr="Veuillez entrer votre format de code unique (ex : Spur____)">
-                Please enter your unique membership format code (e.g., Spur____)
+            <h3 data-en="Enter SPURTAN Code" data-fr="Entrez votre code SPURTAN">Enter SPURTAN Code</h3>
+            <p data-en="Please enter your unique membership format code (e.g., SPUR____)" data-fr="Veuillez entrer votre format de code unique (ex : SPUR____)">
+                Please enter your unique membership format code (e.g., SPUR____)
             </p>
             
             <form id="spurtanForm" action="https://formspree.io/f/xlgkqnjw" method="POST" onsubmit="handleCodeSubmit(event)">
-                <input type="text" class="modal-input" name="spurtan_code" placeholder="Spur____" id="spurInput" required>
+                <input type="hidden" name="city_location" id="formCityFieldCode" value="Vancouver - Yaletown">
+                <input type="text" class="modal-input" name="spurtan_code" placeholder="SPUR____" id="spurInput" required>
                 <button type="submit" class="modal-btn" data-en="Apply Code" data-fr="Appliquer le code">Apply Code</button>
             </form>
             
@@ -639,7 +669,7 @@
         </div>
     </div>
 
-    <!-- FINAL CONFIRMATION SCREEN (Check Your Messages) -->
+    <!-- FINAL CONFIRMATION SCREEN -->
     <div id="finalSuccessView">
         <div class="success-header-tag" data-en="Priority Dispatch" data-fr="Expédition Prioritaire">Priority Dispatch</div>
         <div class="success-main-title" data-en="Request Received." data-fr="Demande Reçue.">Request Received.</div>
@@ -663,7 +693,7 @@
                     <div class="grid-box-lbl" data-en="Minutes" data-fr="Minutes">Minutes</div>
                 </div>
                 <div class="receipt-grid-box">
-                    <div class="grid-box-val">Plateau</div>
+                    <div class="grid-box-val" id="receiptTargetArea">Yaletown</div>
                     <div class="grid-box-lbl" data-en="Target Area" data-fr="Zone Cible">Target Area</div>
                 </div>
             </div>
@@ -675,7 +705,52 @@
     </div>
 
     <script>
-        // Language switching engine
+        // State Management for City & Language
+        let currentCity = 'yvr'; // 'yvr' or 'yul'
+
+        const cityData = {
+            yvr: {
+                enBadge: "Vancouver • Yaletown • Live",
+                frBadge: "Vancouver • Yaletown • Actif",
+                areaName: "Yaletown",
+                formVal: "Vancouver - Yaletown"
+            },
+            yul: {
+                enBadge: "Montreal • Plateau • Live",
+                frBadge: "Montréal • Plateau • Actif",
+                areaName: "Plateau",
+                formVal: "Montreal - Plateau"
+            }
+        };
+
+        function setCity(city) {
+            currentCity = city;
+            document.getElementById('btn-yvr').classList.toggle('active', city === 'yvr');
+            document.getElementById('btn-yul').classList.toggle('active', city === 'yul');
+
+            // Update hidden form fields so Formspree alerts you of the exact city
+            document.getElementById('formCityField').value = cityData[city].formVal;
+            document.getElementById('formCityFieldCode').value = cityData[city].formVal;
+            document.getElementById('receiptTargetArea').innerText = cityData[city].areaName;
+
+            updateBadgeText();
+            localStorage.setItem('spur_active_city', city);
+        }
+
+        function toggleCity() {
+            setCity(currentCity === 'yvr' ? 'yul' : 'yvr');
+        }
+
+        function updateBadgeText() {
+            const lang = localStorage.getItem('spur_lang') || 'en';
+            const badge = document.getElementById('liveBadgeText');
+            if (lang === 'fr') {
+                badge.innerText = cityData[currentCity].frBadge;
+            } else {
+                badge.innerText = cityData[currentCity].enBadge;
+            }
+        }
+
         function switchLanguage(lang) {
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
@@ -689,80 +764,69 @@
                 }
             });
 
-            localStorage.setItem('spur_montreal_lang', lang);
+            localStorage.setItem('spur_lang', lang);
+            updateBadgeText();
         }
 
         // Modal Controls
-        function openVerifyModal() {
-            document.getElementById('verifyModal').style.display = 'flex';
-        }
-        function closeVerifyModal() {
-            document.getElementById('verifyModal').style.display = 'none';
-        }
+        function openVerifyModal() { document.getElementById('verifyModal').style.display = 'flex'; }
+        function closeVerifyModal() { document.getElementById('verifyModal').style.display = 'none'; }
+        function openCodeModal() { document.getElementById('codeModal').style.display = 'flex'; }
+        function closeCodeModal() { document.getElementById('codeModal').style.display = 'none'; }
 
-        function openCodeModal() {
-            document.getElementById('codeModal').style.display = 'flex';
-        }
-        function closeCodeModal() {
-            document.getElementById('codeModal').style.display = 'none';
-        }
-
-        // Handle Formspree Code Submission
         async function handleCodeSubmit(event) {
             event.preventDefault();
             const codeVal = document.getElementById('spurInput').value.trim();
-            const currentLang = localStorage.getItem('spur_montreal_lang') || 'en';
+            const lang = localStorage.getItem('spur_lang') || 'en';
 
-            if (codeVal.toLowerCase().startsWith('spur')) {
+            if (codeVal.toUpperCase().startsWith('SPUR')) {
                 const form = event.target;
                 const formData = new FormData(form);
                 try {
                     await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
-                    alert(currentLang === 'fr' ? "✓ Code validé avec succès !" : "✓ Code successfully validated!");
+                    alert(lang === 'fr' ? "✓ Code validé avec succès !" : "✓ Code successfully validated!");
                     closeCodeModal();
                     form.reset();
                 } catch (e) {
-                    alert(currentLang === 'fr' ? "Erreur réseau." : "Network error.");
+                    alert(lang === 'fr' ? "Erreur réseau." : "Network error.");
                 }
             } else {
-                alert(currentLang === 'fr' ? "Veuillez respecter le format Spur____" : "Please follow the Spur____ format");
+                alert(lang === 'fr' ? "Veuillez respecter le format SPUR____" : "Please follow the SPUR____ format");
             }
         }
 
-        // Handle Phone Verification & Seamless Transition to Final Screen
         async function handleVerifySubmit(event) {
             event.preventDefault();
             const phoneVal = document.getElementById('phoneInput').value.trim();
-            const currentLang = localStorage.getItem('spur_montreal_lang') || 'en';
+            const lang = localStorage.getItem('spur_lang') || 'en';
 
             if (phoneVal.length >= 10) {
                 const form = event.target;
                 const formData = new FormData(form);
 
-                // Update final screen text with user's phone line nicely
-                document.getElementById('displayPhoneLine').innerText = (currentLang === 'fr' ? "LIGNE DIRECTE : " : "DISPATCH LINE: ") + phoneVal;
+                document.getElementById('displayPhoneLine').innerText = (lang === 'fr' ? "LIGNE DIRECTE : " : "DISPATCH LINE: ") + phoneVal;
 
                 try {
-                    // Send data silently in background to Formspree without hanging
                     fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
                 } catch (e) {
                     console.log("Background sync initiated");
                 }
 
-                // Transition views instantly
                 closeVerifyModal();
                 document.getElementById('mainAppContainer').style.display = 'none';
                 document.getElementById('finalSuccessView').style.display = 'block';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                alert(currentLang === 'fr' ? "Veuillez entrer un numéro valide à 10 chiffres." : "Please enter a valid 10-digit mobile number.");
+                alert(lang === 'fr' ? "Veuillez entrer un numéro valide à 10 chiffres." : "Please enter a valid 10-digit mobile number.");
             }
         }
 
-        // Auto-load preferred language on startup
+        // Auto-load saved preferences on startup
         window.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('spur_montreal_lang') || 'en';
+            const savedLang = localStorage.getItem('spur_lang') || 'en';
+            const savedCity = localStorage.getItem('spur_active_city') || 'yvr';
             switchLanguage(savedLang);
+            setCity(savedCity);
         });
     </script>
 </body>
