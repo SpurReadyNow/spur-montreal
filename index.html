@@ -37,14 +37,14 @@
             position: relative;
         }
 
-        /* Top Header Area */
+        /* Top Header Layout matching your image */
         .header-container {
             width: 100%;
             max-width: 440px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .logo-area h1 {
@@ -64,12 +64,11 @@
             text-transform: uppercase;
         }
 
-        /* Top Right Group (Plateau Live Badge + Language Toggle) */
-        .top-right-controls {
+        .top-right-group {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            gap: 10px;
+            gap: 8px;
         }
 
         .live-badge {
@@ -78,9 +77,9 @@
             gap: 6px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 6px 12px;
+            padding: 5px 10px;
             border-radius: 20px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
             letter-spacing: 1px;
             color: var(--text-muted);
@@ -88,21 +87,21 @@
         }
 
         .live-dot {
-            width: 6px;
-            height: 6px;
+            width: 5px;
+            height: 5px;
             background-color: #2ecc71;
             border-radius: 50%;
-            box-shadow: 0 0 8px #2ecc71;
+            box-shadow: 0 0 6px #2ecc71;
         }
 
-        /* Language Toggle (EN | FR) */
+        /* Language Toggle matching your image */
         .lang-toggle {
             display: flex;
             align-items: center;
-            background: rgba(212, 175, 55, 0.08);
+            background: rgba(255, 255, 255, 0.04);
             padding: 4px 10px;
-            border-radius: 16px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .lang-toggle button {
@@ -121,40 +120,40 @@
         }
 
         .lang-toggle span {
-            color: #555;
+            color: #444;
             margin: 0 3px;
             font-size: 11px;
         }
 
-        /* Main Content Block */
+        /* Main Content */
         .main-content {
             width: 100%;
             max-width: 440px;
         }
 
         .hero-title {
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 400;
-            line-height: 1.3;
+            line-height: 1.35;
             letter-spacing: -0.5px;
             margin-bottom: 16px;
             color: var(--text-main);
         }
 
         .hero-title-gold {
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 400;
-            line-height: 1.3;
+            line-height: 1.35;
             letter-spacing: -0.5px;
             margin-bottom: 35px;
             color: var(--gold);
         }
 
-        /* Step List (Clickable / Interactive) */
+        /* Steps list matching your image */
         .steps-list {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
             margin-bottom: 35px;
         }
 
@@ -162,22 +161,15 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.015);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 12px 16px;
-            border-radius: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .step-item:hover {
-            border-color: var(--border-color);
-            background: rgba(212, 175, 55, 0.04);
+            padding: 14px 18px;
+            border-radius: 16px;
         }
 
         .step-icon {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: 1px solid var(--border-color);
             background: rgba(212, 175, 55, 0.03);
@@ -186,7 +178,7 @@
             align-items: center;
             color: var(--gold);
             flex-shrink: 0;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .step-text {
@@ -195,7 +187,7 @@
             font-weight: 400;
         }
 
-        /* Pilot Box */
+        /* Pilot Box matching your image */
         .pilot-box {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -204,10 +196,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 25px;
         }
 
         .pilot-label-top {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             letter-spacing: 1px;
             color: var(--text-muted);
@@ -237,26 +230,53 @@
             color: var(--gold);
             text-decoration: none;
             letter-spacing: 0.5px;
-            cursor: pointer;
             background: none;
             border: none;
+            cursor: pointer;
             padding: 0;
-            display: inline-block;
         }
 
         .pilot-code-link:hover {
             text-decoration: underline;
         }
 
-        /* Interactive Modal / Prompt Popup Overlay */
+        /* Breathing Golden Ready Now Button */
+        @keyframes breathing {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+            50% { transform: scale(1.02); box-shadow: 0 0 25px rgba(212, 175, 55, 0.4); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+        }
+
+        .ready-now-cta {
+            width: 100%;
+            background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
+            color: #0d0d0d;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 18px;
+            border-radius: 16px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            letter-spacing: 1px;
+            animation: breathing 3s infinite ease-in-out;
+            margin-bottom: 20px;
+            transition: transform 0.1s ease;
+        }
+
+        .ready-now-cta:active {
+            transform: scale(0.98);
+        }
+
+        /* Interactive Modal for Spur____ Code & Formspree */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(6px);
             display: none;
             justify-content: center;
             align-items: center;
@@ -268,36 +288,42 @@
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 20px;
-            padding: 24px;
+            padding: 28px 24px;
             width: 100%;
-            max-width: 360px;
+            max-width: 380px;
             text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
         }
 
         .modal-card h3 {
             color: var(--gold);
-            font-size: 18px;
-            margin-bottom: 12px;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
         .modal-card p {
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 13px;
             margin-bottom: 20px;
             line-height: 1.4;
         }
 
         .modal-input {
             width: 100%;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 12px;
-            border-radius: 10px;
+            padding: 14px;
+            border-radius: 12px;
             color: #fff;
-            font-size: 15px;
+            font-size: 16px;
             text-align: center;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin-bottom: 16px;
+        }
+
+        .modal-input:focus {
+            border-color: var(--gold);
+            outline: none;
         }
 
         .modal-btn {
@@ -305,47 +331,92 @@
             color: #0d0d0d;
             border: none;
             width: 100%;
-            padding: 12px;
-            border-radius: 10px;
+            padding: 14px;
+            border-radius: 12px;
             font-weight: 700;
+            font-size: 15px;
             cursor: pointer;
+            margin-bottom: 10px;
         }
 
         .modal-close {
-            margin-top: 10px;
             background: none;
             border: none;
             color: var(--text-muted);
             font-size: 12px;
             cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        /* Success / Concierge Working View */
+        #conciergeView {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        #conciergeView h2 {
+            color: var(--gold);
+            font-size: 24px;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        #conciergeView p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(212, 175, 55, 0.1);
+            border-top: 3px solid var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <div class="header-container">
-        <div class="logo-area">
-            <h1>SPUR</h1>
-            <span>SHOW UP READY™</span>
-        </div>
-        <div class="top-right-controls">
-            <!-- Live Status Badge -->
-            <div class="live-badge">
-                <div class="live-dot"></div>
-                <span data-en="Plateau: Live" data-fr="Plateau : Actif">Plateau: Live</span>
+    <!-- Main App Container -->
+    <div class="main-content" id="mainAppContainer">
+        
+        <!-- Header Section -->
+        <div class="header-container">
+            <div class="logo-area">
+                <h1>SPUR</h1>
+                <span>SHOW UP READY™</span>
             </div>
-            <!-- Language Toggle -->
-            <div class="lang-toggle">
-                <button onclick="switchLanguage('en')" id="btn-en" class="active">EN</button>
-                <span>|</span>
-                <button onclick="switchLanguage('fr')" id="btn-fr">FR</button>
+            <div class="top-right-group">
+                <!-- Live Status Badge -->
+                <div class="live-badge">
+                    <div class="live-dot"></div>
+                    <span data-en="Plateau: Active" data-fr="Plateau : Actif">Plateau: Active</span>
+                </div>
+                <!-- Language Toggle -->
+                <div class="lang-toggle">
+                    <button onclick="switchLanguage('en')" id="btn-en" class="active">EN</button>
+                    <span>|</span>
+                    <button onclick="switchLanguage('fr')" id="btn-fr">FR</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Main Content Section -->
-    <div class="main-content">
+        <!-- Hero Copy -->
         <div class="hero-title" data-en="You don't need to know what will make you look better." data-fr="Vous n'avez pas besoin de savoir ce qui vous mettra en valeur.">
             You don't need to know what will make you look better.
         </div>
@@ -354,27 +425,27 @@
             That's what we're here for.
         </div>
 
-        <!-- 4 Clickable Steps with Golden Circle Icons -->
+        <!-- 4 Steps List -->
         <div class="steps-list">
-            <div class="step-item" onclick="triggerStep(1)">
+            <div class="step-item">
                 <div class="step-icon">👤</div>
                 <div class="step-text" data-en="We find your specialist." data-fr="Nous trouvons votre spécialiste.">We find your specialist.</div>
             </div>
-            <div class="step-item" onclick="triggerStep(2)">
+            <div class="step-item">
                 <div class="step-icon">🔍</div>
                 <div class="step-text" data-en="They know exactly what you need." data-fr="Ils savent exactement ce dont vous avez besoin.">They know exactly what you need.</div>
             </div>
-            <div class="step-item" onclick="triggerStep(3)">
+            <div class="step-item">
                 <div class="step-icon">✓</div>
                 <div class="step-text" data-en="You approve." data-fr="Vous approuvez.">You approve.</div>
             </div>
-            <div class="step-item" onclick="triggerStep(4)">
+            <div class="step-item">
                 <div class="step-icon">✨</div>
                 <div class="step-text" data-en="You get ready." data-fr="Vous vous préparez.">You get ready.</div>
             </div>
         </div>
 
-        <!-- Pilot Flat Rate Card -->
+        <!-- Pilot Flat Rate Box -->
         <div class="pilot-box">
             <div>
                 <div class="pilot-label-top" data-en="Pilot Flat Rate" data-fr="Tarif Fixe Pilote">Pilot Flat Rate</div>
@@ -385,16 +456,34 @@
                 <button class="pilot-code-link" onclick="openCodeModal()" data-en="+ HAVE SPurtan CODE?" data-fr="+ AVEZ-VOUS UN CODE SPURTAN?">+ HAVE SPurtan CODE?</button>
             </div>
         </div>
+
+        <!-- Breathing Ready Now Button -->
+        <button class="ready-now-cta" onclick="triggerReadyNow()" data-en="READY NOW" data-fr="PRÊT MAINTENANT">
+            READY NOW
+        </button>
     </div>
 
-    <!-- Interactive Popup Modal for Spur Code -->
+    <!-- Concierge Working View (Hidden by default, shown after clicking Ready Now) -->
+    <div id="conciergeView">
+        <div class="spinner"></div>
+        <h2 data-en="Concierge is working on it..." data-fr="Le concierge s'en occupe...">Concierge is working on it...</h2>
+        <p data-en="Your request has been securely captured. We are matching your profile with an elite Plateau specialist right now. Stand by for your direct line." data-fr="Votre demande a été enregistrée. Nous associons votre profil à un spécialiste d'élite du Plateau. Restez à l'écoute pour votre ligne directe.">
+            Your request has been securely captured. We are matching your profile with an elite Plateau specialist right now. Stand by for your direct line.
+        </p>
+    </div>
+
+    <!-- Interactive Modal for Spur____ Code & Formspree Submission -->
     <div id="codeModal" class="modal-overlay">
         <div class="modal-card">
             <h3 data-en="Enter SPurtan Code" data-fr="Entrez votre code SPurtan">Enter SPurtan Code</h3>
-            <p data-en="Please enter your unique invitation code format (e.g., Spur____)" data-fr="Veuillez entrer votre format de code unique (ex: Spur____)">Please enter your unique invitation code format (e.g., Spur____)</p>
-            <input type="text" class="modal-input" placeholder="Spur____" id="spurInput">
-            <button class="modal-btn" onclick="applyCode()" data-en="Apply Code" data-fr="Appliquer le code">Apply Code</button>
-            <br>
+            <p data-en="Please enter your unique membership format code (e.g., Spur____)" data-fr="Veuillez entrer votre format de code unique (ex : Spur____)">Please enter your unique membership format code (e.g., Spur____)</p>
+            
+            <!-- Formspree Integration Form -->
+            <form id="spurtanForm" action="https://formspree.io/f/xlgkqnjw" method="POST" onsubmit="handleFormSubmit(event)">
+                <input type="text" class="modal-input" name="spurtan_code" placeholder="Spur____" id="spurInput" required>
+                <button type="submit" class="modal-btn" data-en="Apply Code" data-fr="Appliquer le code">Apply Code</button>
+            </form>
+            
             <button class="modal-close" onclick="closeCodeModal()" data-en="Cancel" data-fr="Annuler">Cancel</button>
         </div>
     </div>
@@ -417,28 +506,6 @@
             localStorage.setItem('spur_montreal_lang', lang);
         }
 
-        // Interactive Steps Trigger
-        function triggerStep(stepNum) {
-            const currentLang = localStorage.getItem('spur_montreal_lang') || 'en';
-            const messages = {
-                en: [
-                    "",
-                    "Step 1: Initiating concierge matching for your profile...",
-                    "Step 2: Reviewing top-tier specialists in Plateau-Mont-Royal...",
-                    "Step 3: Preparing your custom tailored recommendation...",
-                    "Step 4: You're all set. Ready for execution."
-                ],
-                fr: [
-                    "",
-                    "Étape 1 : Lancement du jumelage de conciergerie...",
-                    "Étape 2 : Analyse des meilleurs spécialistes du Plateau...",
-                    "Étape 3 : Préparation de votre recommandation personnalisée...",
-                    "Étape 4 : Tout est prêt pour l'exécution."
-                ]
-            };
-            alert(messages[currentLang][stepNum]);
-        }
-
         // Modal Controls for Spur Code
         function openCodeModal() {
             document.getElementById('codeModal').style.display = 'flex';
@@ -448,15 +515,42 @@
             document.getElementById('codeModal').style.display = 'none';
         }
 
-        function applyCode() {
-            const codeVal = document.getElementById('spurInput').value;
+        // Formspree submission handler for code verification
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            const codeVal = document.getElementById('spurInput').value.trim();
             const currentLang = localStorage.getItem('spur_montreal_lang') || 'en';
-            if(codeVal.toLowerCase().startsWith('spur')) {
-                alert(currentLang === 'fr' ? "✓ Code validé avec succès !" : "✓ Code validated successfully!");
-                closeCodeModal();
+
+            if (codeVal.toLowerCase().startsWith('spur')) {
+                const form = event.target;
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        alert(currentLang === 'fr' ? "✓ Code validé et transmis avec succès !" : "✓ Code successfully validated and sent!");
+                        closeCodeModal();
+                        form.reset();
+                    } else {
+                        alert(currentLang === 'fr' ? "Erreur lors de l'envoi. Veuillez réessayer." : "Submission error. Please try again.");
+                    }
+                } catch (error) {
+                    alert(currentLang === 'fr' ? "Erreur réseau." : "Network error.");
+                }
             } else {
-                alert(currentLang === 'fr' ? "Veuillez utiliser le format Spur____" : "Please use the Spur____ format");
+                alert(currentLang === 'fr' ? "Veuillez respecter le format Spur____" : "Please follow the Spur____ format");
             }
+        }
+
+        // Ready Now Button click transitions to the golden-and-white Concierge Working view
+        function triggerReadyNow() {
+            document.getElementById('mainAppContainer').style.display = 'none';
+            document.getElementById('conciergeView').style.display = 'block';
         }
 
         // Auto-load preferred language on startup
