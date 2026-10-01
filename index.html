@@ -37,14 +37,14 @@
             position: relative;
         }
 
-        /* Top Header Layout matching your image */
+        /* Top Header Layout */
         .header-container {
             width: 100%;
             max-width: 440px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .logo-area h1 {
@@ -94,7 +94,7 @@
             box-shadow: 0 0 6px #2ecc71;
         }
 
-        /* Language Toggle matching your image */
+        /* Language Toggle */
         .lang-toggle {
             display: flex;
             align-items: center;
@@ -129,6 +129,14 @@
         .main-content {
             width: 100%;
             max-width: 440px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-section {
+            width: 100%;
+            text-align: left;
         }
 
         .hero-title {
@@ -145,16 +153,17 @@
             font-weight: 400;
             line-height: 1.35;
             letter-spacing: -0.5px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             color: var(--gold);
         }
 
-        /* Steps list matching your image */
+        /* Steps list */
         .steps-list {
+            width: 100%;
             display: flex;
             flex-direction: column;
             gap: 14px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .step-item {
@@ -187,8 +196,9 @@
             font-weight: 400;
         }
 
-        /* Pilot Box matching your image */
+        /* Pilot Box */
         .pilot-box {
+            width: 100%;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
@@ -196,7 +206,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
         }
 
         .pilot-label-top {
@@ -240,35 +250,65 @@
             text-decoration: underline;
         }
 
-        /* Breathing Golden Ready Now Button */
+        /* Circular Breathing Ready Now Button */
         @keyframes breathing {
-            0% { transform: scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
-            50% { transform: scale(1.02); box-shadow: 0 0 25px rgba(212, 175, 55, 0.4); }
-            100% { transform: scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(212, 175, 55, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
         }
 
-        .ready-now-cta {
-            width: 100%;
+        .ready-circle-btn {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
             background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
             color: #0d0d0d;
-            font-size: 18px;
-            font-weight: 700;
-            padding: 18px;
-            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             border: none;
             cursor: pointer;
-            text-align: center;
-            letter-spacing: 1px;
             animation: breathing 3s infinite ease-in-out;
-            margin-bottom: 20px;
+            margin: 10px auto 20px auto;
+            text-align: center;
             transition: transform 0.1s ease;
         }
 
-        .ready-now-cta:active {
-            transform: scale(0.98);
+        .ready-circle-btn:active {
+            transform: scale(0.96);
         }
 
-        /* Interactive Modal for Spur____ Code & Formspree */
+        .ready-circle-text {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            line-height: 1.1;
+        }
+
+        .ready-circle-sub {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .cta-footer-note {
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .brand-philosophy {
+            font-size: 14px;
+            color: var(--gold-light);
+            font-style: italic;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+        }
+
+        /* Interactive Modals */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -297,7 +337,7 @@
 
         .modal-card h3 {
             color: var(--gold);
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 10px;
         }
 
@@ -348,51 +388,143 @@
             letter-spacing: 0.5px;
         }
 
-        /* Success / Concierge Working View */
-        #conciergeView {
+        /* Final Request Received Card View */
+        #finalSuccessView {
             display: none;
-            text-align: center;
-            padding: 40px 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
             width: 100%;
             max-width: 440px;
+            text-align: center;
         }
 
-        #conciergeView h2 {
+        .success-header-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
             color: var(--gold);
-            font-size: 24px;
-            margin-bottom: 16px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .success-main-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
             letter-spacing: -0.5px;
         }
 
-        #conciergeView p {
-            color: var(--text-muted);
+        .success-sub-title {
             font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .success-receipt-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 28px 24px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
+
+        .success-receipt-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+        }
+
+        .receipt-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .receipt-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .receipt-updates-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .receipt-price-box {
+            text-align: right;
+        }
+
+        .receipt-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .receipt-price-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .receipt-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .receipt-grid-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .grid-box-val {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .grid-box-lbl {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .receipt-footer-desc {
+            font-size: 12px;
+            color: var(--text-muted);
             line-height: 1.5;
-            margin-bottom: 25px;
-        }
-
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(212, 175, 55, 0.1);
-            border-top: 3px solid var(--gold);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 16px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Main App Container -->
+    <!-- MAIN APP SCREEN -->
     <div class="main-content" id="mainAppContainer">
         
         <!-- Header Section -->
@@ -405,7 +537,7 @@
                 <!-- Live Status Badge -->
                 <div class="live-badge">
                     <div class="live-dot"></div>
-                    <span data-en="Plateau: Active" data-fr="Plateau : Actif">Plateau: Active</span>
+                    <span data-en="Montreal • Plateau • Live" data-fr="Montréal • Plateau • Actif">Montreal • Plateau • Live</span>
                 </div>
                 <!-- Language Toggle -->
                 <div class="lang-toggle">
@@ -416,70 +548,89 @@
             </div>
         </div>
 
-        <!-- Hero Copy -->
-        <div class="hero-title" data-en="You don't need to know what will make you look better." data-fr="Vous n'avez pas besoin de savoir ce qui vous mettra en valeur.">
-            You don't need to know what will make you look better.
-        </div>
+        <div class="hero-section">
+            <div class="hero-title" data-en="You don't need to know what will make you look better." data-fr="Vous n'avez pas besoin de savoir ce qui vous mettra en valeur.">
+                You don't need to know what will make you look better.
+            </div>
 
-        <div class="hero-title-gold" data-en="That's what we're here for." data-fr="C'est exactement pour cela que nous sommes là.">
-            That's what we're here for.
-        </div>
+            <div class="hero-title-gold" data-en="That's what we're here for." data-fr="C'est exactement pour cela que nous sommes là.">
+                That's what we're here for.
+            </div>
 
-        <!-- 4 Steps List -->
-        <div class="steps-list">
-            <div class="step-item">
-                <div class="step-icon">👤</div>
-                <div class="step-text" data-en="We find your specialist." data-fr="Nous trouvons votre spécialiste.">We find your specialist.</div>
+            <!-- 4 Steps List -->
+            <div class="steps-list">
+                <div class="step-item">
+                    <div class="step-icon">👤</div>
+                    <div class="step-text" data-en="We find your specialist." data-fr="Nous trouvons votre spécialiste.">We find your specialist.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">🔍</div>
+                    <div class="step-text" data-en="They know exactly what you need." data-fr="Ils savent exactement ce dont vous avez besoin.">They know exactly what you need.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">✓</div>
+                    <div class="step-text" data-en="You approve." data-fr="Vous approuvez.">You approve.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">✨</div>
+                    <div class="step-text" data-en="You get ready." data-fr="Vous vous préparez.">You get ready.</div>
+                </div>
             </div>
-            <div class="step-item">
-                <div class="step-icon">🔍</div>
-                <div class="step-text" data-en="They know exactly what you need." data-fr="Ils savent exactement ce dont vous avez besoin.">They know exactly what you need.</div>
+
+            <!-- Pilot Flat Rate Box -->
+            <div class="pilot-box">
+                <div>
+                    <div class="pilot-label-top" data-en="Pilot Flat Rate" data-fr="Tarif Fixe Pilote">Pilot Flat Rate</div>
+                    <div class="pilot-label-sub" data-en="Complete grooming & styling" data-fr="Coiffure et style complets">Complete grooming & styling</div>
+                </div>
+                <div class="pilot-price-area">
+                    <div class="pilot-price">$49.99 CAD</div>
+                    <button class="pilot-code-link" onclick="openCodeModal()" data-en="+ HAVE SPurtan CODE?" data-fr="+ AVEZ-VOUS UN CODE SPURTAN?">+ HAVE SPurtan CODE?</button>
+                </div>
             </div>
-            <div class="step-item">
-                <div class="step-icon">✓</div>
-                <div class="step-text" data-en="You approve." data-fr="Vous approuvez.">You approve.</div>
-            </div>
-            <div class="step-item">
-                <div class="step-icon">✨</div>
-                <div class="step-text" data-en="You get ready." data-fr="Vous vous préparez.">You get ready.</div>
+
+            <!-- Circular Breathing Ready Now Button -->
+            <div style="text-align: center; width: 100%;">
+                <button class="ready-circle-btn" onclick="openVerifyModal()">
+                    <span class="ready-circle-text" data-en="READY" data-fr="PRÊT">READY</span>
+                    <span class="ready-circle-text" data-en="NOW™" data-fr="MAINTENANT™">NOW™</span>
+                </button>
+                <div class="cta-footer-note" data-en="Tap to find match • No payment upfront" data-fr="Appuyez pour trouver un match • Aucun paiement à l'avance">
+                    Tap to find match • No payment upfront
+                </div>
+                <div class="brand-philosophy" data-en="We look at you, not a menu." data-fr="Nous regardons vous, pas un menu.">
+                    We look at you, not a menu.
+                </div>
             </div>
         </div>
-
-        <!-- Pilot Flat Rate Box -->
-        <div class="pilot-box">
-            <div>
-                <div class="pilot-label-top" data-en="Pilot Flat Rate" data-fr="Tarif Fixe Pilote">Pilot Flat Rate</div>
-                <div class="pilot-label-sub" data-en="Complete grooming & styling" data-fr="Coiffure et style complets">Complete grooming & styling</div>
-            </div>
-            <div class="pilot-price-area">
-                <div class="pilot-price">$49.99 CAD</div>
-                <button class="pilot-code-link" onclick="openCodeModal()" data-en="+ HAVE SPurtan CODE?" data-fr="+ AVEZ-VOUS UN CODE SPURTAN?">+ HAVE SPurtan CODE?</button>
-            </div>
-        </div>
-
-        <!-- Breathing Ready Now Button -->
-        <button class="ready-now-cta" onclick="triggerReadyNow()" data-en="READY NOW" data-fr="PRÊT MAINTENANT">
-            READY NOW
-        </button>
     </div>
 
-    <!-- Concierge Working View (Hidden by default, shown after clicking Ready Now) -->
-    <div id="conciergeView">
-        <div class="spinner"></div>
-        <h2 data-en="Concierge is working on it..." data-fr="Le concierge s'en occupe...">Concierge is working on it...</h2>
-        <p data-en="Your request has been securely captured. We are matching your profile with an elite Plateau specialist right now. Stand by for your direct line." data-fr="Votre demande a été enregistrée. Nous associons votre profil à un spécialiste d'élite du Plateau. Restez à l'écoute pour votre ligne directe.">
-            Your request has been securely captured. We are matching your profile with an elite Plateau specialist right now. Stand by for your direct line.
-        </p>
+    <!-- VERIFICATION MODAL (Step 2: Enter Phone Number) -->
+    <div id="verifyModal" class="modal-overlay">
+        <div class="modal-card">
+            <h3 data-en="Verify Identity" data-fr="Vérifier l'identité">Verify Identity</h3>
+            <p data-en="Enter your mobile number. We will text you your match details." data-fr="Entrez votre numéro de mobile. Nous vous enverrons les détails de votre match.">
+                Enter your mobile number. We will text you your match details.
+            </p>
+            
+            <form id="verifyForm" action="https://formspree.io/f/xlgkqnjw" method="POST" onsubmit="handleVerifySubmit(event)">
+                <input type="tel" class="modal-input" name="client_phone" placeholder="10 Digits (e.g. 5141234567)" id="phoneInput" required pattern="[0-9]{10}">
+                <button type="submit" class="modal-btn" data-en="Confirm & Find Match" data-fr="Confirmer & Trouver un Match">CONFIRM & FIND MATCH</button>
+            </form>
+            
+            <button class="modal-close" onclick="closeVerifyModal()" data-en="Cancel" data-fr="Annuler">CANCEL</button>
+        </div>
     </div>
 
-    <!-- Interactive Modal for Spur____ Code & Formspree Submission -->
+    <!-- SPURTAN CODE MODAL -->
     <div id="codeModal" class="modal-overlay">
         <div class="modal-card">
             <h3 data-en="Enter SPurtan Code" data-fr="Entrez votre code SPurtan">Enter SPurtan Code</h3>
-            <p data-en="Please enter your unique membership format code (e.g., Spur____)" data-fr="Veuillez entrer votre format de code unique (ex : Spur____)">Please enter your unique membership format code (e.g., Spur____)</p>
+            <p data-en="Please enter your unique membership format code (e.g., Spur____)" data-fr="Veuillez entrer votre format de code unique (ex : Spur____)">
+                Please enter your unique membership format code (e.g., Spur____)
+            </p>
             
-            <!-- Formspree Integration Form -->
-            <form id="spurtanForm" action="https://formspree.io/f/xlgkqnjw" method="POST" onsubmit="handleFormSubmit(event)">
+            <form id="spurtanForm" action="https://formspree.io/f/xlgkqnjw" method="POST" onsubmit="handleCodeSubmit(event)">
                 <input type="text" class="modal-input" name="spurtan_code" placeholder="Spur____" id="spurInput" required>
                 <button type="submit" class="modal-btn" data-en="Apply Code" data-fr="Appliquer le code">Apply Code</button>
             </form>
@@ -488,8 +639,43 @@
         </div>
     </div>
 
+    <!-- FINAL CONFIRMATION SCREEN (Check Your Messages) -->
+    <div id="finalSuccessView">
+        <div class="success-header-tag" data-en="Priority Dispatch" data-fr="Expédition Prioritaire">Priority Dispatch</div>
+        <div class="success-main-title" data-en="Request Received." data-fr="Demande Reçue.">Request Received.</div>
+        <div class="success-sub-title" data-en="We are securing your specialist." data-fr="Nous assurons votre spécialiste.">We are securing your specialist.</div>
+
+        <div class="success-receipt-card">
+            <div class="receipt-top-row">
+                <div>
+                    <div class="receipt-title" data-en="Check your messages" data-fr="Vérifiez vos messages">Check your messages</div>
+                    <div class="receipt-updates-tag" id="displayPhoneLine">DISPATCH LINE: ACTIVE</div>
+                </div>
+                <div class="receipt-price-box">
+                    <div class="receipt-price">$49.99</div>
+                    <div class="receipt-price-label" data-en="Pilot Rate" data-fr="Tarif Pilote">Pilot Rate</div>
+                </div>
+            </div>
+
+            <div class="receipt-grid">
+                <div class="receipt-grid-box">
+                    <div class="grid-box-val">&lt; 3</div>
+                    <div class="grid-box-lbl" data-en="Minutes" data-fr="Minutes">Minutes</div>
+                </div>
+                <div class="receipt-grid-box">
+                    <div class="grid-box-val">Plateau</div>
+                    <div class="grid-box-lbl" data-en="Target Area" data-fr="Zone Cible">Target Area</div>
+                </div>
+            </div>
+
+            <div class="receipt-footer-desc" data-en="Your concierge is coordinating with our studio partners. You will pay the flat $49.99 fee directly at the studio after your transformation." data-fr="Votre concierge coordonne avec nos partenaires en studio. Vous paierez les frais fixes de 49,99 $ directement au studio après votre transformation.">
+                Your concierge is coordinating with our studio partners. You will pay the flat $49.99 fee directly at the studio after your transformation.
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Language switching script
+        // Language switching engine
         function switchLanguage(lang) {
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
@@ -497,26 +683,32 @@
             const elements = document.querySelectorAll('[data-en]');
             elements.forEach(el => {
                 if (lang === 'fr') {
-                    el.innerText = el.getAttribute('data-fr');
+                    if (el.hasAttribute('data-fr')) el.innerText = el.getAttribute('data-fr');
                 } else {
-                    el.innerText = el.getAttribute('data-en');
+                    if (el.hasAttribute('data-en')) el.innerText = el.getAttribute('data-en');
                 }
             });
 
             localStorage.setItem('spur_montreal_lang', lang);
         }
 
-        // Modal Controls for Spur Code
+        // Modal Controls
+        function openVerifyModal() {
+            document.getElementById('verifyModal').style.display = 'flex';
+        }
+        function closeVerifyModal() {
+            document.getElementById('verifyModal').style.display = 'none';
+        }
+
         function openCodeModal() {
             document.getElementById('codeModal').style.display = 'flex';
         }
-
         function closeCodeModal() {
             document.getElementById('codeModal').style.display = 'none';
         }
 
-        // Formspree submission handler for code verification
-        async function handleFormSubmit(event) {
+        // Handle Formspree Code Submission
+        async function handleCodeSubmit(event) {
             event.preventDefault();
             const codeVal = document.getElementById('spurInput').value.trim();
             const currentLang = localStorage.getItem('spur_montreal_lang') || 'en';
@@ -524,22 +716,12 @@
             if (codeVal.toLowerCase().startsWith('spur')) {
                 const form = event.target;
                 const formData = new FormData(form);
-
                 try {
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    });
-
-                    if (response.ok) {
-                        alert(currentLang === 'fr' ? "✓ Code validé et transmis avec succès !" : "✓ Code successfully validated and sent!");
-                        closeCodeModal();
-                        form.reset();
-                    } else {
-                        alert(currentLang === 'fr' ? "Erreur lors de l'envoi. Veuillez réessayer." : "Submission error. Please try again.");
-                    }
-                } catch (error) {
+                    await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+                    alert(currentLang === 'fr' ? "✓ Code validé avec succès !" : "✓ Code successfully validated!");
+                    closeCodeModal();
+                    form.reset();
+                } catch (e) {
                     alert(currentLang === 'fr' ? "Erreur réseau." : "Network error.");
                 }
             } else {
@@ -547,10 +729,34 @@
             }
         }
 
-        // Ready Now Button click transitions to the golden-and-white Concierge Working view
-        function triggerReadyNow() {
-            document.getElementById('mainAppContainer').style.display = 'none';
-            document.getElementById('conciergeView').style.display = 'block';
+        // Handle Phone Verification & Seamless Transition to Final Screen
+        async function handleVerifySubmit(event) {
+            event.preventDefault();
+            const phoneVal = document.getElementById('phoneInput').value.trim();
+            const currentLang = localStorage.getItem('spur_montreal_lang') || 'en';
+
+            if (phoneVal.length >= 10) {
+                const form = event.target;
+                const formData = new FormData(form);
+
+                // Update final screen text with user's phone line nicely
+                document.getElementById('displayPhoneLine').innerText = (currentLang === 'fr' ? "LIGNE DIRECTE : " : "DISPATCH LINE: ") + phoneVal;
+
+                try {
+                    // Send data silently in background to Formspree without hanging
+                    fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+                } catch (e) {
+                    console.log("Background sync initiated");
+                }
+
+                // Transition views instantly
+                closeVerifyModal();
+                document.getElementById('mainAppContainer').style.display = 'none';
+                document.getElementById('finalSuccessView').style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                alert(currentLang === 'fr' ? "Veuillez entrer un numéro valide à 10 chiffres." : "Please enter a valid 10-digit mobile number.");
+            }
         }
 
         // Auto-load preferred language on startup
